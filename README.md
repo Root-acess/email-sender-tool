@@ -100,28 +100,6 @@ cd email-sender-tool
 
 ---
 
-## **File Structure**
-
-```
-email-sender-tool/
-│
-├── frontend/                 # React application
-│   ├── src/
-│   │   ├── App.tsx          # Main application component
-│   │   ├── components/      # UI components
-│   │   ├── styles/          # CSS and styling files
-│   │   └── ...
-│   ├── public/              # Public files
-│   └── package.json         # Frontend dependencies
-│
-├── backend/                  # FastAPI application
-│   ├── main.py              # Backend server code
-│   ├── requirements.txt     # Backend dependencies
-│   └── ...
-│
-└── README.md                 # Project documentation
-```
-
 ---
 
 ## **Endpoints**
