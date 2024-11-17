@@ -1,50 +1,177 @@
-<<<<<<< HEAD
-# email-sender-tool
-=======
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **Email Sender Tool**
 
-## Available Scripts
+This project is a web-based tool for sending bulk emails with a sleek and responsive interface. It allows users to send HTML email templates to multiple recipients by uploading a recipient list and configuring email details. The tool uses **React** (TypeScript) for the frontend and **FastAPI** (Python) for the backend.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## **Features**
+- User-friendly interface for configuring and sending emails.
+- Bulk email sending by uploading a recipient list in `.txt` or `.csv` format.
+- Supports HTML email templates.
+- Real-time notifications for success or errors.
+- Backend email handling using SMTP.
+- Lightweight and easy to deploy.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## **Technologies Used**
 
-### `npm test`
+### **Frontend**
+- **React** with TypeScript
+- **Axios** for API requests
+- **React Toastify** for notifications
+- **React Dropzone** for file upload
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Backend**
+- **FastAPI** for building RESTful APIs
+- **smtplib** for sending emails
+- **Uvicorn** for running the FastAPI server
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## **Setup and Installation**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js and npm
+- Python (3.9 or later)
+- Gmail account (or any SMTP-compatible email service)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Clone the Repository
+```bash
+git clone https://github.com/yourusername/email-sender-tool.git
+cd email-sender-tool
+```
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. Start the React development server:
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Create a virtual environment and activate it:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # For Windows: venv\Scripts\activate
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
->>>>>>> b1cfad1 (Initialize project using Create React App)
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Run the FastAPI server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+
+5. The backend will be available at `http://localhost:8000`.
+
+---
+
+### Usage
+1. Start both the frontend and backend servers.
+2. Open the frontend in your browser (`http://localhost:3000`).
+3. Fill out the form with:
+   - Sender email and password.
+   - Subject and HTML content for the email.
+   - Upload a recipient list (`.txt` or `.csv`).
+4. Click **Send Emails** to initiate bulk email sending.
+
+---
+
+## **File Structure**
+
+```
+email-sender-tool/
+│
+├── frontend/                 # React application
+│   ├── src/
+│   │   ├── App.tsx          # Main application component
+│   │   ├── components/      # UI components
+│   │   ├── styles/          # CSS and styling files
+│   │   └── ...
+│   ├── public/              # Public files
+│   └── package.json         # Frontend dependencies
+│
+├── backend/                  # FastAPI application
+│   ├── main.py              # Backend server code
+│   ├── requirements.txt     # Backend dependencies
+│   └── ...
+│
+└── README.md                 # Project documentation
+```
+
+---
+
+## **Endpoints**
+
+### **POST `/send-emails`**
+Uploads a recipient file and sends bulk emails.
+
+- **Request Body**:
+  - `file` (UploadFile): Recipient list in `.txt` or `.csv`.
+  - `emailData` (JSON): Email configuration details:
+    ```json
+    {
+      "senderEmail": "your_email@gmail.com",
+      "password": "your_app_password",
+      "subject": "Your Subject",
+      "htmlContent": "HTML content of the email"
+    }
+    ```
+
+- **Response**:
+  - `200 OK`: Emails sent successfully.
+  - `400/500`: Error details.
+
+---
+
+## **Screenshots**
+### **Home Page**
+_Add screenshots here to show the UI._
+
+---
+
+## **Future Enhancements**
+- OAuth2 authentication for email services.
+- Support for scheduling emails.
+- Integration with a database for email logging.
+- More file format support for recipient lists.
+
+---
+
+## **Contributing**
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Add feature"`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
+
+---
+
+## **License**
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
